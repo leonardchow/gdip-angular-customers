@@ -1,0 +1,37 @@
+<div *ngIf="customer">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4>{{ customer.name }}</h4>
+    </div>
+    <div class="panel-body">
+      <b>Credit limit: </b>
+      {{ customer.creditLimit }}
+      <br />
+      <span class="label"
+        [ngClass]=
+        "{'label-danger' : customer.discountCode == 'N',
+        'label-warning' : customer.discountCode == 'L',
+        'label-info' : customer.discountCode == 'M',
+        'label-success' : customer.discountCode == 'H'}
+        ">
+        <b>Discount rate: </b>
+        {{ customer.rate }}
+      </span>
+      <br />
+      <br />
+      <b>phone:</b> {{ customer.phone }} / <b>fax:</b> {{ customer.fax }}
+      <br />
+      <a href="mailto:{{ customer.email }}">{{ customer.email }}</a>
+      <br />
+      {{ customer.address1 }}
+      <br />
+      {{ customer.address2 }}
+      <br />
+      {{ customer.city }}, {{ customer.state }} – {{ customer.zip }}
+      <br />
+    </div>
+    <div class="panel-footer">
+        <input type="button" value="Back to list" class="btn btn-sm btn-primary" (click)="goBack()">
+    </div>
+  </div>
+</div>
